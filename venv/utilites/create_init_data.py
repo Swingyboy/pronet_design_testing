@@ -19,9 +19,10 @@ def parse_csv (path_to_file:str):
     return traders
 
 
-def url_modify(trader_data):
+def url_modify(traders_info:dict, trader:str):
     modified_url_list =[]
-    url_list = [trader_data['URL'], trader_data ['mobile_URL']]
+    trader_data = traders_info[trader]
+    url_list = [trader_data['URL'], trader_data['mobile_URL']]
 
     for url in url_list:
         protocol, url = url.split('//')
@@ -33,4 +34,4 @@ def url_modify(trader_data):
 
 if __name__ == '__main__':
     traders = parse_csv('D:\my_folder\Job\pronet\credentials.csv')
-    print(url_modify(traders['makrobet']))
+    print(url_modify(traders, 'betprolive'))

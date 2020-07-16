@@ -1,6 +1,14 @@
+import time
+
 import pytest
+from pages.base_page import BasePage
 
 
-def test(browser, trader_link):
-    browser.get(trader_link[0])
-    assert 0
+class TestLoginFromMainPage():
+
+    def test_guest_can_go_to_login_page(self, browser, trader_link):
+        page = BasePage(browser, trader_link[0])
+        page.open()
+        page.browser.implicitly_wait(3000)
+        page.go_to_login_page()
+        time.sleep(10)

@@ -15,10 +15,10 @@ class BasePage():
 
     def open(self):
         self.browser.get(self.url)
-        time.sleep(5)
+        assert self.is_element_disappear(*BasePageLocators.PRELOADER)
 
     def go_to_login_page(self):
-        assert self.is_element_present(*BasePageLocators.LOGIN_BUTTON, timeout=10)
+        assert self.is_element_clickable(*BasePageLocators.LOGIN_BUTTON, timeout=10)
         login_button = self.browser.find_element(*BasePageLocators.LOGIN_BUTTON)
         login_button.click()
 
@@ -26,6 +26,22 @@ class BasePage():
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException). \
                     until(EC.presence_of_element_located((how, what)))
+        except TimeoutException:
+            return False
+        return True
+
+    def is_element_clickable(self, how, what, timeout=5):
+        try:
+            WebDriverWait(self.browser, timeout, 1, TimeoutException). \
+                    until(EC.element_to_be_clickable((how, what)))
+        except TimeoutException:
+            return False
+        return True
+
+    def is_element_disappear(self, how, what, timeout=5):
+        try:
+            WebDriverWait(self.browser, timeout, 1, TimeoutException). \
+                    until(EC.invisibility_of_element_located((how, what)))
         except TimeoutException:
             return False
         return True

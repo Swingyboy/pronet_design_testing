@@ -25,8 +25,8 @@ def url_modify(traders_info:dict, trader:str):
     url_list = [trader_data['URL'], trader_data['mobile_URL']]
 
     for url in url_list:
-        protocol, url = url.split('//')
-        modified_url = protocol + '//' + trader_data['user'] + ':' + trader_data['password'] +'@' + url
+        protocol, uri = url.split('//')
+        modified_url = protocol + '//' + trader_data['user'] + ':' + trader_data['password'] +'@' + uri
         modified_url_list.append(modified_url)
 
     return modified_url_list

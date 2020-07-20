@@ -11,7 +11,7 @@ def pytest_addoption(parser):
     parser.addoption('--trader', action='store', default='makrobet', help='Specify the trader')
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope='class')
 def browser(request):
     browser_name = request.config.getoption('browser_name')
     browser = None
@@ -30,7 +30,7 @@ def browser(request):
     browser.quit()
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope='class')
 def trader_link(request):
     csv_file = request.config.getoption('path_to_csv_file')
     trader_name = request.config.getoption('trader')

@@ -20,6 +20,8 @@ class LoginPage(BasePage):
     def user_login(self, user:str, password:str):
         user_field = self.browser.find_element(*LoginPageLocators.USERNAME_FIELD)
         password_field = self.browser.find_element(*LoginPageLocators.PASSWORD_FIELD)
+        user_field.clear()
+        password_field.clear()
         user_field.send_keys(user)
         password_field.send_keys(password)
         sign_in_button = self.browser.find_element(*LoginPageLocators.SGN_BUTTON)

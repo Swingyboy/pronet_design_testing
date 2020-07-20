@@ -45,3 +45,10 @@ class BasePage():
         except TimeoutException:
             return False
         return True
+
+    def close_modal_window(self):
+        modal_window_present = self.is_element_present(*BasePageLocators.MODAL_WINDOW)
+        if modal_window_present:
+            if self.is_element_clickable(*BasePageLocators.MODAL_WINDOW_CLOSE):
+                mdl_wnd_cls_btn = self.browser.find_element(*BasePageLocators.MODAL_WINDOW_CLOSE)
+                mdl_wnd_cls_btn.click()

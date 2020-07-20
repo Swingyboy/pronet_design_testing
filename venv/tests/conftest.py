@@ -3,6 +3,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
 from utilites.create_init_data import parse_csv, url_modify
+from pages.main_page import MainPage
+from pages.login_page import LoginPage
 
 
 def pytest_addoption(parser):
@@ -11,7 +13,7 @@ def pytest_addoption(parser):
     parser.addoption('--trader', action='store', default='makrobet', help='Specify the trader')
 
 
-@pytest.fixture(scope='class')
+@pytest.fixture(scope='module')
 def browser(request):
     browser_name = request.config.getoption('browser_name')
     browser = None
@@ -38,3 +40,17 @@ def trader_link(request):
     traders_list = parse_csv(csv_file)
     url, mobile_url = url_modify(traders_list, trader_name)
     return url, mobile_url
+
+
+@pytest.fixture(scope='function')
+def login_page(browser, trader_link):
+    page = MainPage(browser, trader_link[0])
+    page.open()
+    page.close_modal_window()
+    page.go_to_login_page()
+
+    login_page = LoginPage(browser, browser.current_url)
+    login_page.close_modal_window()
+
+    yield login_page
+    login_page.close_login_page()

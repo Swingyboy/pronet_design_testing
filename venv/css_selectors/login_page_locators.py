@@ -9,3 +9,4 @@ class LoginPageLocators():
     USERNAME_FIELD = (By.CSS_SELECTOR, '#username')
     PASSWORD_FIELD = (By.CSS_SELECTOR, '#login-password')
     ERROR_MESSAGE = (By.CSS_SELECTOR, 'message-box > div > div:nth-child(2)')
+    CLOSE_BTN = (By.CSS_SELECTOR, '#sgn-mdl > a > i')

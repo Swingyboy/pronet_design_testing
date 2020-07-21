@@ -1,5 +1,3 @@
-import time
-
 from .base_page import BasePage
 from css_selectors.main_page_locators import MainPageLocators
 

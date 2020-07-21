@@ -16,9 +16,44 @@ class BasePage():
         assert self.is_element_disappear(*BasePageLocators.PRELOADER)
 
     def go_to_login_page(self):
-        assert self.is_element_clickable(*BasePageLocators.LOGIN_BUTTON, timeout=10)
+        assert self.is_element_clickable(*BasePageLocators.LOGIN_BUTTON)
         login_button = self.browser.find_element(*BasePageLocators.LOGIN_BUTTON)
         login_button.click()
+
+    def go_to_sports_betting_page(self):
+        self.open_header_menu_dropdown()
+        assert self.is_element_clickable(*BasePageLocators.SPORTS_BET_BTN)
+        sprt_bet_btn = self.browser.find_element(*BasePageLocators.SPORTS_BET_BTN)
+        sprt_bet_btn.click()
+
+    def go_to_live_betting_page(self):
+        self.open_header_menu_dropdown()
+        assert self.is_element_clickable(*BasePageLocators.LIVE_BET_BTN)
+        live_bet_btn = self.browser.find_element(*BasePageLocators.LIVE_BET_BTN)
+        live_bet_btn.click()
+
+    def go_to_esports_page(self):
+        self.open_header_menu_dropdown()
+        assert self.is_element_clickable(*BasePageLocators.E_SPORTS_BET_BTN)
+        esports_btn = self.browser.find_element(*BasePageLocators.E_SPORTS_BET_BTN)
+        esports_btn.click()
+
+    def go_to_live_casino_page(self):
+        self.open_header_menu_dropdown()
+        assert self.is_element_clickable(*BasePageLocators.LIVE_CASINO_BTN)
+        live_casino_button = self.browser.find_element(*BasePageLocators.LIVE_CASINO_BTN)
+        live_casino_button.click()
+
+    def go_to_casino_page(self):
+        self.open_header_menu_dropdown()
+        assert self.is_element_clickable(*BasePageLocators.CASINO_BTN)
+        casino_btn = self.browser.find_element(*BasePageLocators.CASINO_BTN)
+        casino_btn.click()
+
+    def open_header_menu_dropdown(self):
+        if self.is_element_clickable(*BasePageLocators.HEADER_MENU_DROPDOWN_BTN):
+            btn = self.browser.find_element(*BasePageLocators.HEADER_MENU_DROPDOWN_BTN)
+            btn.click()
 
     def is_element_present(self, how, what, timeout=5):
         try:
@@ -48,5 +83,6 @@ class BasePage():
         modal_window_present = self.is_element_present(*BasePageLocators.MODAL_WINDOW)
         if modal_window_present:
             if self.is_element_clickable(*BasePageLocators.MODAL_WINDOW_CLOSE):
+                assert self.is_element_disappear(*BasePageLocators.PRELOADER)
                 mdl_wnd_cls_btn = self.browser.find_element(*BasePageLocators.MODAL_WINDOW_CLOSE)
                 mdl_wnd_cls_btn.click()

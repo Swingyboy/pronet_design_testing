@@ -7,10 +7,10 @@ from pages.nw_acc_page import NwAccPage
 from pages.forgot_password_page import ForgotPasswordPage
 
 
-@pytest.mark.skip
+@pytest.mark.second
 class TestLoginPage():
 
-    def test_user_has_incorrect_credentials(self,login_page):
+    def test_user_has_incorrect_credentials(self, login_page):
         user = 'serhii12'
         password = '!Zergswarm21'
         lgn_page = login_page

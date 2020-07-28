@@ -6,4 +6,5 @@ class SportsBetPageLocators():
     LIVE_BET_BAR = (By.CSS_SELECTOR, 'live-at-now > div > div.modul-header')
     ESPORTS_BAR = (By.CSS_SELECTOR, 'app-esports > div > div.modul-header')
     TODAY_EVENT_BAR = (By.CSS_SELECTOR, 'todays-sport-types > div > div.modul-header')
+    BET_SLIP_BAR = (By.CSS_SELECTOR, '#right-sidebar > app-bet-slip')
 

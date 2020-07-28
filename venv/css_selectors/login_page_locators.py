@@ -2,7 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class LoginPageLocators():
-    TITLE = (By.CSS_SELECTOR, 'div.title')
+    TITLE = (By.CSS_SELECTOR, '.login-form div.title')
     SGN_BUTTON = (By.CSS_SELECTOR, 'button.sgn-btn')
     FGT_PSW_BUTTON = (By.CSS_SELECTOR, 'a.ftgtpass')
     NWACC_BUTTON = (By.CSS_SELECTOR, 'a.nwacc')

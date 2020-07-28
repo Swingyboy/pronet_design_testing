@@ -54,3 +54,12 @@ def login_page(browser, trader_link):
 
     yield login_page
     login_page.close_login_page()
+
+
+@pytest.fixture(scope='function')
+def main_page(browser, trader_link):
+    main_page = MainPage(browser, trader_link[0])
+    main_page.open()
+    main_page.close_modal_window()
+
+    return main_page

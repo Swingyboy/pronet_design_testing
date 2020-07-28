@@ -12,3 +12,8 @@ class MainPage(BasePage):
         user_menu_button = self.browser.find_element(*MainPageLocators.USER_MENU_BUTTON)
         assert user in user_menu_button.get_attribute('innerHTML'), \
             f"The user name {user} is missing in  {user_menu_button.get_attribute('innerHTML')}!!!!"
+
+    def open_sports_betting_page(self):
+        assert self.is_element_clickable(*MainPageLocators.SPORTS_BETTING_LINK)
+        link = self.browser.find_element(*MainPageLocators.SPORTS_BETTING_LINK)
+        link.click()

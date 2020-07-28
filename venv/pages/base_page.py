@@ -15,6 +15,11 @@ class BasePage():
         self.browser.get(self.url)
         assert self.is_element_disappear(*BasePageLocators.PRELOADER)
 
+    def go_to_main_page(self):
+        assert self.is_element_clickable(*BasePageLocators.LOGO_BANNER)
+        logo_link = self.browser.find_element(*BasePageLocators.LOGO_BANNER)
+        logo_link.click()
+
     def go_to_login_page(self):
         assert self.is_element_clickable(*BasePageLocators.LOGIN_BUTTON)
         login_button = self.browser.find_element(*BasePageLocators.LOGIN_BUTTON)

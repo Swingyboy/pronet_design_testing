@@ -7,7 +7,7 @@ from pages.nw_acc_page import NwAccPage
 from pages.forgot_password_page import ForgotPasswordPage
 
 
-@pytest.mark.second
+@pytest.mark.skip
 class TestLoginPage():
 
     def test_user_has_incorrect_credentials(self, login_page):
@@ -24,6 +24,7 @@ class TestLoginPage():
         lgn_page.user_forgot_pswd()
         fgt_pswd_page = ForgotPasswordPage(lgn_page.browser, lgn_page.browser.current_url)
         fgt_pswd_page.page_should_be_loaded()
+        fgt_pswd_page.go_to_main_page()
 
     def test_user_can_open_new_account(self, login_page):
         lgn_page = login_page
@@ -31,6 +32,7 @@ class TestLoginPage():
         lgn_page.user_create_new_acc()
         new_acc_page = NwAccPage(lgn_page.browser, lgn_page.browser.current_url)
         new_acc_page.page_should_be_loaded()
+        new_acc_page.go_to_main_page()
 
     def test_user_can_login(self, login_page):
         user = 'serhii'

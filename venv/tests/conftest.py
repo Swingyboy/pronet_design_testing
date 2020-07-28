@@ -42,7 +42,7 @@ def trader_link(request):
     return url, mobile_url
 
 
-@pytest.fixture(scope='function')
+@pytest.fixture(scope='class')
 def main_page(browser, trader_link):
     main_page = MainPage(browser, trader_link[0])
     main_page.open()

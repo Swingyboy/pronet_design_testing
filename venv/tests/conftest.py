@@ -48,7 +48,8 @@ def main_page(browser, trader_link):
     main_page.open()
     main_page.close_modal_window()
 
-    return main_page
+    yield main_page
+    main_page.go_to_main_page()
 
 
 @pytest.fixture(scope='function')

@@ -1,9 +1,17 @@
 import pytest
-from pages.main_page import MainPage
-from pages.login_page import LoginPage
+
+from pages.affilates_page import AffilatesPage
+from pages.bet_on_games_page import BetOnGamesPage
+from pages.casino_page import CasinoPage
 from pages.live_bet_page import LiveBetPage
+from pages.live_bingo_page import LiveBingoPage
 from pages.live_casino_page import LiveCasinoPage
+from pages.login_page import LoginPage
+from pages.main_page import MainPage
+from pages.poker_page import PokerPage
+from pages.promotions_page import PromotionsPage
 from pages.sports_bet_page import SportsBetPage
+from pages.virtual_sports_page import VirtualSportsPage
 
 
 @pytest.mark.run(order=1)
@@ -36,22 +44,43 @@ class TestMainPage():
         live_casino_page.page_should_be_opened()
 
     def test_user_can_open_casino_page(self, main_page):
-        pass
+        page = main_page
+        page.go_to_live_casino_page()
+        casino_page = CasinoPage(page.browser, page.browser.current_url)
+        casino_page.page_should_be_opened()
 
     def test_user_can_open_poker_page(self, main_page):
-        pass
+        page = main_page
+        page.go_to_live_casino_page()
+        poker_page = PokerPage(page.browser, page.browser.current_url)
+        poker_page.page_should_be_loaded()
 
     def test_user_can_open_bet_on_games_page(self, main_page):
-        pass
+        page = main_page
+        page.go_to_live_casino_page()
+        bog_page = BetOnGamesPage(page.browser, page.browser.current_url)
+        bog_page.page_should_be_opened()
 
     def test_user_can_open_live_bingo_page(self, main_page):
-        pass
+        page = main_page
+        page.go_to_live_casino_page()
+        live_bingo_page = LiveBingoPage(page.browser, page.browser.current_url)
+        live_bingo_page.page_should_be_opened()
 
     def test_user_can_open_virtual_sports_page(self, main_page):
-        pass
+        page = main_page
+        page.go_to_live_casino_page()
+        virtual_sports_page = VirtualSportsPage(page.browser, page.browser.current_url)
+        virtual_sports_page.page_should_be_opened()
 
     def test_user_can_open_promotions_page(self, main_page):
-        pass
+        page = main_page
+        page.go_to_live_casino_page()
+        promo_page = PromotionsPage(page.browser, page.browser.current_url)
+        promo_page.page_should_be_opened()
 
     def test_user_can_open_affilates_page(self, main_page):
-        pass
+        page = main_page
+        page.go_to_live_casino_page()
+        aff_page = AffilatesPage(page.browser, page.browser.current_url)
+        aff_page.page_should_be_opened()

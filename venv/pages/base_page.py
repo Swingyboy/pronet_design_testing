@@ -22,38 +22,74 @@ class BasePage():
 
     def go_to_login_page(self):
         assert self.is_element_clickable(*BasePageLocators.LOGIN_BUTTON)
-        login_button = self.browser.find_element(*BasePageLocators.LOGIN_BUTTON)
-        login_button.click()
+        button = self.browser.find_element(*BasePageLocators.LOGIN_BUTTON)
+        button.click()
 
     def go_to_sports_betting_page(self):
         self.open_header_menu_dropdown()
         assert self.is_element_clickable(*BasePageLocators.SPORTS_BET_BTN)
-        sprt_bet_btn = self.browser.find_element(*BasePageLocators.SPORTS_BET_BTN)
-        sprt_bet_btn.click()
+        btn = self.browser.find_element(*BasePageLocators.SPORTS_BET_BTN)
+        btn.click()
 
     def go_to_live_betting_page(self):
         self.open_header_menu_dropdown()
         assert self.is_element_clickable(*BasePageLocators.LIVE_BET_BTN)
-        live_bet_btn = self.browser.find_element(*BasePageLocators.LIVE_BET_BTN)
-        live_bet_btn.click()
+        btn = self.browser.find_element(*BasePageLocators.LIVE_BET_BTN)
+        btn.click()
 
     def go_to_esports_page(self):
         self.open_header_menu_dropdown()
         assert self.is_element_clickable(*BasePageLocators.E_SPORTS_BET_BTN)
-        esports_btn = self.browser.find_element(*BasePageLocators.E_SPORTS_BET_BTN)
-        esports_btn.click()
+        btn = self.browser.find_element(*BasePageLocators.E_SPORTS_BET_BTN)
+        btn.click()
 
     def go_to_live_casino_page(self):
         self.open_header_menu_dropdown()
         assert self.is_element_clickable(*BasePageLocators.LIVE_CASINO_BTN)
-        live_casino_button = self.browser.find_element(*BasePageLocators.LIVE_CASINO_BTN)
-        live_casino_button.click()
+        button = self.browser.find_element(*BasePageLocators.LIVE_CASINO_BTN)
+        button.click()
 
     def go_to_casino_page(self):
         self.open_header_menu_dropdown()
         assert self.is_element_clickable(*BasePageLocators.CASINO_BTN)
-        casino_btn = self.browser.find_element(*BasePageLocators.CASINO_BTN)
-        casino_btn.click()
+        btn = self.browser.find_element(*BasePageLocators.CASINO_BTN)
+        btn.click()
+
+    def go_to_poker_page(self):
+        self.open_header_menu_dropdown()
+        assert self.is_element_clickable(*BasePageLocators.POKER_BTN)
+        btn = self.browser.find_element(*BasePageLocators.POKER_BTN)
+        btn.click()
+
+    def go_to_bet_on_games_page(self):
+        self.open_header_menu_dropdown()
+        assert self.is_element_clickable(*BasePageLocators.BETONGAMES_BTN)
+        btn = self.browser.find_element(*BasePageLocators.BETONGAMES_BTN)
+        btn.click()
+
+    def go_to_live_bingo_page(self):
+        self.open_header_menu_dropdown()
+        assert self.is_element_clickable(*BasePageLocators.LIVE_BINGO_BTN)
+        btn = self.browser.find_element(*BasePageLocators.LIVE_BINGO_BTN)
+        btn.click()
+
+    def go_to_virtual_sports_page(self):
+        self.open_header_menu_dropdown()
+        assert self.is_element_clickable(*BasePageLocators.VIRTUAL_SPORTS_BTN)
+        btn = self.browser.find_element(*BasePageLocators.VIRTUAL_SPORTS_BTN)
+        btn.click()
+
+    def go_to_promotions_page(self):
+        self.open_header_menu_dropdown()
+        assert self.is_element_clickable(*BasePageLocators.PROMOTIONS_BTN)
+        btn = self.browser.find_element(*BasePageLocators.PROMOTIONS_BTN)
+        btn.click()
+
+    def go_to_affilates_page(self):
+        self.open_header_menu_dropdown()
+        assert self.is_element_clickable(*BasePageLocators.AFFILIATES_BTN)
+        btn = self.browser.find_element(*BasePageLocators.AFFILIATES_BTN)
+        btn.click()
 
     def open_header_menu_dropdown(self):
         if self.is_element_clickable(*BasePageLocators.HEADER_MENU_DROPDOWN_BTN):

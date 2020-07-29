@@ -2,4 +2,4 @@ from selenium.webdriver.common.by import By
 
 
 class CasinoPageLocators():
-    pass
+    TITLE = (By.CSS_SELECTOR, 'div.col.s2.left-content > h4')

@@ -19,4 +19,4 @@ class BasePageLocators():
     PROMOTIONS_BTN = (By.CSS_SELECTOR, 'li[data-order="11"]')
     AFFILIATES_BRN = (By.CSS_SELECTOR, 'li[data-order="12"]')
     HEADER_MENU_DROPDOWN_BTN = (By.CSS_SELECTOR, 'li[data-element="dropdown-wrapper"]')
-    LOGO_BANNER = (By.CSS_SELECTOR, 'div > div > div.left > a')
+    LOGO_BANNER = (By.CSS_SELECTOR, '#brand-logo')

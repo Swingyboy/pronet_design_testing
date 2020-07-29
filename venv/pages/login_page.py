@@ -9,7 +9,7 @@ class LoginPage(BasePage):
     def __init__(self, *args, **kwargs):
         super(LoginPage, self).__init__(*args, **kwargs)
         
-    def login_page_should_be_loaded(self):
+    def page_should_be_loaded(self):
         assert self.is_element_present(*LoginPageLocators.TITLE)
         assert self.is_element_present(*LoginPageLocators.USERNAME_FIELD)
         assert self.is_element_present(*LoginPageLocators.PASSWORD_FIELD)

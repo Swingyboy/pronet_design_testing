@@ -12,4 +12,11 @@ class SportsBetPage(BasePage):
         assert self.is_element_present(*SportsBetPageLocators.ESPORTS_BAR)
         assert self.is_element_present(*SportsBetPageLocators.LIVE_BET_BAR)
         assert self.is_element_present(*SportsBetPageLocators.TODAY_EVENT_BAR)
-        assert self.is_element_present(*SportsBetPageLocators.BET_SLIP_BAR)
+        title_1 = self.browser.find_element(*SportsBetPageLocators.UPCOMING_EVENTS_BAR).text
+        title_2 = self.browser.find_element(*SportsBetPageLocators.ESPORTS_BAR).text
+        title_3 = self.browser.find_element(*SportsBetPageLocators.LIVE_BET_BAR).text
+        title_4 = self.browser.find_element(*SportsBetPageLocators.TODAY_EVENT_BAR).text
+        assert 'Upcoming Events' in title_1 or 'Birazdan Oynanacaklar' in title_1
+        assert 'E-Sports' in title_2 or 'E-sport' in title_2
+        assert 'Live Bet' in title_3 or 'Canlı' in title_3
+        assert "Today's Events" in title_4 or 'Günün Maçları' in title_4

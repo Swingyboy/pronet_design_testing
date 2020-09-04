@@ -49,6 +49,7 @@ class TestMainPage():
         casino_page = CasinoPage(page.browser, page.browser.current_url)
         casino_page.page_should_be_opened()
 
+    @pytest.mark.skip
     def test_user_can_open_poker_page(self, main_page):
         page = main_page
         page.go_to_poker_page()
@@ -67,18 +68,21 @@ class TestMainPage():
         live_bingo_page = LiveBingoPage(page.browser, page.browser.current_url)
         live_bingo_page.page_should_be_opened()
 
+    @pytest.mark.skip
     def test_user_can_open_virtual_sports_page(self, main_page):
         page = main_page
         page.go_to_virtual_sports_page()
         virtual_sports_page = VirtualSportsPage(page.browser, page.browser.current_url)
         virtual_sports_page.page_should_be_opened()
 
+    @pytest.mark.skip
     def test_user_can_open_promotions_page(self, main_page):
         page = main_page
         page.go_to_promotions_page()
         promo_page = PromotionsPage(page.browser, page.browser.current_url)
         promo_page.page_should_be_opened()
 
+    @pytest.mark.skip
     def test_user_can_open_affilates_page(self, main_page):
         page = main_page
         page.go_to_affilates_page()

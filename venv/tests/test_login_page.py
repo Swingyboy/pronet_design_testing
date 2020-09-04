@@ -37,7 +37,7 @@ class TestLoginPage():
     @pytest.mark.xfail
     def test_user_can_login(self, login_page):
         user = 'serhii'
-        password = '!Fabokeyy.7'
+        password = '!QWErty19'
         lgn_page = login_page
         lgn_page.page_should_be_loaded()
         lgn_page.user_login(user, password)

@@ -8,4 +8,6 @@ class PromotionsPage(BasePage):
         super(PromotionsPage, self).__init__(*args, **kwargs)
 
     def page_should_be_opened(self):
-        pass
+        self.is_element_present(*PromotionPageLocators.TITLE, timeout=20)
+        title = self.browser.find_element(*PromotionPageLocators.TITLE)
+        assert 'PROMOSYONLAR' in title.text or 'PROMOSYONLAR' in title.text

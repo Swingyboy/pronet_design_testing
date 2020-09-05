@@ -8,6 +8,6 @@ class BetOnGamesPage(BasePage):
         super(BetOnGamesPage, self).__init__(*args, **kwargs)
 
     def page_should_be_opened(self):
-        self.is_element_present(*BetOnGamesPageLocators.TITLE, timeout=60)
+        self.is_element_present(*BetOnGamesPageLocators.TITLE, timeout=20)
         title = self.browser.find_element(*BetOnGamesPageLocators.TITLE)
         assert 'Betongames' in title.text or 'Betongames' in title.text

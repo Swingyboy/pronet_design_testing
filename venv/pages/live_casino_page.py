@@ -8,6 +8,6 @@ class LiveCasinoPage(BasePage):
         super(LiveCasinoPage, self).__init__(*args, **kwargs)
 
     def page_should_be_opened(self):
-        self.is_element_present(*LiveCasinoPageLocators.TITLE, timeout=60)
+        self.is_element_present(*LiveCasinoPageLocators.TITLE, timeout=20)
         title = self.browser.find_element(*LiveCasinoPageLocators.TITLE)
         assert 'Game' in title.text or 'Oyun' in title.text

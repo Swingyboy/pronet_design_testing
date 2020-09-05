@@ -16,8 +16,8 @@ class BasePage():
         assert self.is_element_disappear(*BasePageLocators.PRELOADER)
 
     def go_to_main_page(self):
-        assert self.is_element_clickable(*BasePageLocators.LOGO_BANNER)
-        logo_link = self.browser.find_element(*BasePageLocators.LOGO_BANNER)
+        assert self.is_element_clickable(*BasePageLocators.LOGO)
+        logo_link = self.browser.find_element(*BasePageLocators.LOGO)
         logo_link.click()
 
     def go_to_login_page(self):
@@ -96,7 +96,7 @@ class BasePage():
             btn = self.browser.find_element(*BasePageLocators.HEADER_MENU_DROPDOWN_BTN)
             btn.click()
 
-    def is_element_present(self, how, what, timeout=10):
+    def is_element_present(self, how, what, timeout=5):
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException). \
                     until(EC.presence_of_element_located((how, what)))
@@ -104,7 +104,7 @@ class BasePage():
             return False
         return True
 
-    def is_element_clickable(self, how, what, timeout=10):
+    def is_element_clickable(self, how, what, timeout=5):
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException). \
                     until(EC.element_to_be_clickable((how, what)))

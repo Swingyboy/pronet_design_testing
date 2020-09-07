@@ -6,8 +6,8 @@ from pages.forgot_password_page import ForgotPasswordPage
 
 
 @pytest.mark.run(order=2)
-#@pytest.mark.dependency(depends=['test_main_page.py::TestMainPage::test_user_can_open_login_page'],
-#                        scope='session')
+@pytest.mark.dependency(depends=['test_main_page.py::TestMainPage::test_user_can_open_login_page'],
+                        scope='session')
 class TestLoginPage():
 
     def test_user_has_incorrect_credentials(self, login_page):

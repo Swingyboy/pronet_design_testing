@@ -7,6 +7,7 @@ class BasePageLocators():
     LOGO = (By.CSS_SELECTOR, 'div.hdr-top.clear.fix-hide > a')
     USER_INFO_DROP_DOWN = (By.CSS_SELECTOR, '.fix-hide > div > div.login-menu.right > ul '
                                                '> li:nth-child(1) > balance')
+    USER_MENU_DROP_DOWN = (By.CSS_SELECTOR, 'div > div.login-menu.right > ul > li:nth-child(3) > a')
     USER_BALANCE_TEXT = (By.CSS_SELECTOR, '#balance-drop-top > div.balance-main > div.balance-content > '
                                           'div:nth-child(1)')
 

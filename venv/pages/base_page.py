@@ -25,70 +25,35 @@ class BasePage():
         button = self.browser.find_element(*BasePageLocators.LOGIN_BUTTON)
         button.click()
 
-    def go_to_sports_betting_page(self):
-        self.open_top_menu_dropdown()
-        assert self.is_element_clickable(*BasePageLocators.SPORTS_BET_BTN)
-        btn = self.browser.find_element(*BasePageLocators.SPORTS_BET_BTN)
-        btn.click()
+    def go_to_top_menu_page(self, page:str):
+        if page.upper() == "SPORTS BETTING":
+            locator = BasePageLocators.SPORTS_BET_BTN
+        elif page.upper() == "LIVE BETTING":
+            locator = BasePageLocators.LIVE_BET_BTN
+        elif page.upper() == "E-SPORTS":
+            locator = BasePageLocators.E_SPORTS_BET_BTN
+        elif page.upper() == "LIVE CASINO":
+            locator = BasePageLocators.LIVE_CASINO_BTN
+        elif page.upper() == "CASINO":
+            locator = BasePageLocators.CASINO_BTN
+        elif page.upper() == "POKER":
+            locator = BasePageLocators.POKER_BTN
+        elif page.upper() == "BET ON GAMES":
+            locator = BasePageLocators.BETONGAMES_BTN
+        elif page.upper() == "LIVE BINGO":
+            locator = BasePageLocators.LIVE_BINGO_BTN
+        elif page.upper() == "VIRTUAL SPORTS":
+            locator = BasePageLocators.VIRTUAL_SPORTS_BTN
+        elif page.upper() == "PROMOTIONS":
+            locator = BasePageLocators.PROMOTIONS_BTN
+        elif page.upper() == "AFFILATES":
+            locator = BasePageLocators.AFFILIATES_BTN
+        else:
+            assert False, "There is no such element in top-menu"
 
-    def go_to_live_betting_page(self):
         self.open_top_menu_dropdown()
-        assert self.is_element_clickable(*BasePageLocators.LIVE_BET_BTN)
-        btn = self.browser.find_element(*BasePageLocators.LIVE_BET_BTN)
-        btn.click()
-
-    def go_to_esports_page(self):
-        self.open_top_menu_dropdown()
-        assert self.is_element_clickable(*BasePageLocators.E_SPORTS_BET_BTN)
-        btn = self.browser.find_element(*BasePageLocators.E_SPORTS_BET_BTN)
-        btn.click()
-
-    def go_to_live_casino_page(self):
-        self.open_top_menu_dropdown()
-        assert self.is_element_clickable(*BasePageLocators.LIVE_CASINO_BTN)
-        button = self.browser.find_element(*BasePageLocators.LIVE_CASINO_BTN)
-        button.click()
-
-    def go_to_casino_page(self):
-        self.open_top_menu_dropdown()
-        assert self.is_element_clickable(*BasePageLocators.CASINO_BTN)
-        btn = self.browser.find_element(*BasePageLocators.CASINO_BTN)
-        btn.click()
-
-    def go_to_poker_page(self):
-        self.open_top_menu_dropdown()
-        assert self.is_element_clickable(*BasePageLocators.POKER_BTN)
-        btn = self.browser.find_element(*BasePageLocators.POKER_BTN)
-        btn.click()
-
-    def go_to_bet_on_games_page(self):
-        self.open_top_menu_dropdown()
-        assert self.is_element_clickable(*BasePageLocators.BETONGAMES_BTN)
-        btn = self.browser.find_element(*BasePageLocators.BETONGAMES_BTN)
-        btn.click()
-
-    def go_to_live_bingo_page(self):
-        self.open_top_menu_dropdown()
-        assert self.is_element_clickable(*BasePageLocators.LIVE_BINGO_BTN)
-        btn = self.browser.find_element(*BasePageLocators.LIVE_BINGO_BTN)
-        btn.click()
-
-    def go_to_virtual_sports_page(self):
-        self.open_top_menu_dropdown()
-        assert self.is_element_clickable(*BasePageLocators.VIRTUAL_SPORTS_BTN)
-        btn = self.browser.find_element(*BasePageLocators.VIRTUAL_SPORTS_BTN)
-        btn.click()
-
-    def go_to_promotions_page(self):
-        self.open_top_menu_dropdown()
-        assert self.is_element_clickable(*BasePageLocators.PROMOTIONS_BTN)
-        btn = self.browser.find_element(*BasePageLocators.PROMOTIONS_BTN)
-        btn.click()
-
-    def go_to_affilates_page(self):
-        self.open_top_menu_dropdown()
-        assert self.is_element_clickable(*BasePageLocators.AFFILIATES_BTN)
-        btn = self.browser.find_element(*BasePageLocators.AFFILIATES_BTN)
+        assert self.is_element_clickable(*locator), f"The {page} button isn't clickable!"
+        btn = self.browser.find_element(*locator)
         btn.click()
 
     def open_top_menu_dropdown(self):
@@ -122,7 +87,7 @@ class BasePage():
 
     def user_is_logged_in(self, user:str):
         assert self.is_element_present(*BasePageLocators.USER_INFO_DROP_DOWN), f"The user menu is missing!!!"
-        user_dropdown = self.browser.find_element(*BasePageLocators.USER_BALANCE_DROP_DOWN)
+        user_dropdown = self.browser.find_element(*BasePageLocators.USER_INFO_DROP_DOWN)
         user_dropdown.click()
         assert self.is_element_present(*BasePageLocators.USER_BALANCE_TEXT), f"There is no user name field"
         user_name = self.browser.find_element(*BasePageLocators.USER_BALANCE_TEXT)
@@ -133,6 +98,6 @@ class BasePage():
         modal_window_present = self.is_element_present(*BasePageLocators.MODAL_WINDOW)
         if modal_window_present:
             if self.is_element_clickable(*BasePageLocators.MODAL_WINDOW_CLOSE):
-                assert self.is_element_disappear(*BasePageLocators.PRELOADER)
+                assert self.is_element_disappear(*BasePageLocators.PRELOADER), "Modal window is still present!"
                 mdl_wnd_cls_btn = self.browser.find_element(*BasePageLocators.MODAL_WINDOW_CLOSE)
                 mdl_wnd_cls_btn.click()

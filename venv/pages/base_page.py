@@ -11,18 +11,20 @@ class BasePage():
         self.browser = browser
         self.url = url
 
-    def open(self):
+    def open_url(self):
         self.browser.get(self.url)
         assert self.is_element_disappear(*BasePageLocators.PRELOADER)
 
     def go_to_main_page(self):
         assert self.is_element_clickable(*BasePageLocators.LOGO)
         logo_link = self.browser.find_element(*BasePageLocators.LOGO)
+        assert self.is_element_disappear(*BasePageLocators.PRELOADER)
         logo_link.click()
 
     def go_to_login_page(self):
         assert self.is_element_clickable(*BasePageLocators.LOGIN_BUTTON)
         button = self.browser.find_element(*BasePageLocators.LOGIN_BUTTON)
+        assert self.is_element_disappear(*BasePageLocators.PRELOADER)
         button.click()
 
     def go_to_top_menu_page(self, page:str):
@@ -56,10 +58,38 @@ class BasePage():
         btn = self.browser.find_element(*locator)
         btn.click()
 
+    def user_logout(self):
+        self.open_user_menu_dropdown()
+        assert self.is_element_clickable(*BasePageLocators.LOGOUT), f"The LogOut button isn't clickable!"
+        btn = self.browser.find_element(*BasePageLocators.LOGOUT)
+        btn.click()
+
+    def open_user_menu_page(self, page:str):
+        if page.upper() == "MONEY DEPOSIT":
+            locator = BasePageLocators.MONEY_DEPOSIT
+        elif page.upper() == "MONEY WITHDRAWAL":
+            locator = BasePageLocators.MONEY_WITHDRAWAL
+        elif page.upper() == "TRANSFER BETWEEN ACCOUNTS":
+            locator = BasePageLocators.TRANSFER
+        elif page.upper() == "PROMOTIONS":
+            locator = BasePageLocators.PROMOTIONS
+        else:
+            assert False, "There is no such item in menu"
+
+        self.open_user_menu_dropdown()
+        assert self.is_element_clickable(*locator), f"The {page} button isn't clickable!"
+        btn = self.browser.find_element(*locator)
+        btn.click()
+
     def open_top_menu_dropdown(self):
         if self.is_element_clickable(*BasePageLocators.TOP_MENU_DROPDOWN_BTN):
-            btn = self.browser.find_element(*BasePageLocators.TOP_MENU_DROPDOWN_BTN)
-            btn.click()
+            menu = self.browser.find_element(*BasePageLocators.TOP_MENU_DROPDOWN_BTN)
+            menu.click()
+
+    def open_user_menu_dropdown(self):
+        if self.is_element_clickable(*BasePageLocators.USER_MENU_DROP_DOWN):
+            menu = self.browser.find_element(*BasePageLocators.USER_MENU_DROP_DOWN)
+            menu.click()
 
     def is_element_present(self, how, what, timeout=5):
         try:
@@ -77,7 +107,7 @@ class BasePage():
             return False
         return True
 
-    def is_element_disappear(self, how, what, timeout=5):
+    def is_element_disappear(self, how, what, timeout=10):
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException). \
                     until(EC.invisibility_of_element_located((how, what)))
@@ -92,7 +122,7 @@ class BasePage():
         assert self.is_element_present(*BasePageLocators.USER_BALANCE_TEXT), f"There is no user name field"
         user_name = self.browser.find_element(*BasePageLocators.USER_BALANCE_TEXT)
         assert user in user_name.text, \
-            f"The user name {user} is missing in {user_name.text}!!!!"
+            f"The user name {user} is not logged in!!!!"
 
     def close_modal_window(self):
         modal_window_present = self.is_element_present(*BasePageLocators.MODAL_WINDOW)

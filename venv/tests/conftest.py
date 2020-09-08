@@ -47,7 +47,7 @@ def trader_link(request):
 @pytest.fixture(scope='class')
 def main_page(browser, trader_link):
     main_page = MainPage(browser, trader_link[0])
-    main_page.open()
+    main_page.open_url()
     main_page.close_modal_window()
 
     yield main_page

@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 
 
 class BasePageLocators():
+#Locators for the header elements
     LOGIN_BUTTON = (By.CSS_SELECTOR, 'div.hdr-top.clear.fix-hide > div >'
                                      ' div.logout-menu.right > ul > li:nth-child(1) > a')
     LOGO = (By.CSS_SELECTOR, 'div.hdr-top.clear.fix-hide > a')
@@ -11,10 +12,12 @@ class BasePageLocators():
     USER_BALANCE_TEXT = (By.CSS_SELECTOR, '#balance-drop-top > div.balance-main > div.balance-content > '
                                           'div:nth-child(1)')
 
+#Locators for the modal windows that can be opened in some cases if content was added
     PRELOADER = (By.CSS_SELECTOR, 'div#preloader')
     MODAL_WINDOW = (By.CSS_SELECTOR, '#mdl-on-enter')
     MODAL_WINDOW_CLOSE = (By.CSS_SELECTOR, '#mdl-on-enter > a > i')
 
+#Locators for the top-menu pages
     SPORTS_BET_BTN = (By.CSS_SELECTOR, 'li[data-order="1"]')
     LIVE_BET_BTN = (By.CSS_SELECTOR, 'li[data-order="2"]')
     JACKPOTS_BTN = (By.CSS_SELECTOR, 'li[data-order="3"]')
@@ -27,3 +30,10 @@ class BasePageLocators():
     VIRTUAL_SPORTS_BTN = (By.CSS_SELECTOR, 'li[data-order="10"]')
     PROMOTIONS_BTN = (By.CSS_SELECTOR, 'li[data-order="11"]')
     TOP_MENU_DROPDOWN_BTN = (By.CSS_SELECTOR, 'li[data-element="dropdown-wrapper"]')
+
+#Locators for user menu
+    MONEY_DEPOSIT = (By.CSS_SELECTOR, '#settings-drop-top > div > ul:nth-child(1) > a:nth-child(2)')
+    MONEY_WITHDRAWAL = (By.CSS_SELECTOR, '#settings-drop-top > div > ul:nth-child(1) > a:nth-child(3)')
+    TRANSFER = (By.CSS_SELECTOR, '#settings-drop-top > div > ul:nth-child(1) > a:nth-child(4)')
+    PROMOTIONS = (By.CSS_SELECTOR, '#settings-drop-top > div > ul:nth-child(1) > a:nth-child(5)')
+    LOGOUT = (By.CSS_SELECTOR, '#settings-drop-top > div > ul:nth-child(4) > a:nth-child(2)')

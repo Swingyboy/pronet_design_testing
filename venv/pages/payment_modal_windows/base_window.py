@@ -3,12 +3,19 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
 
+from css_selectors.payment_windows_locators.base_window_locators import BaseWindowLocators
+
 
 class BaseWindow():
 
     def __init__(self, browser, url):
         self.browser = browser
         self.url = url
+
+    def close_window(self):
+        assert self.is_element_clickable(*BaseWindowLocators.CLOSE_X_BUTTON), "The X close button isn't clickable"
+        btn = self.browser.find_element(*BaseWindowLocators.CLOSE_X_BUTTON)
+        btn.click()
 
     def is_element_present(self, how, what, timeout=5):
         try:

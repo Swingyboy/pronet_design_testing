@@ -21,6 +21,11 @@ class DepositPage(BasePage):
         btn = self.browser.find_element(*selector)
         btn.click()
 
+    def cancel_deposit(self):
+        assert self.is_element_clickable(*DepositPageLocators.CANCEL_DEPOSIT_BTN), "The cancel button isn't clickable!"
+        btn = self.browser.find_element(*DepositPageLocators.CANCEL_DEPOSIT_BTN)
+        btn.click()
+
     def page_should_be_opened(self):
         self.is_element_present(*DepositPageLocators.PAGE_TITLE_SECTION_1, timeout=20)
         title_1 = self.browser.find_element(*DepositPageLocators.PAGE_TITLE_SECTION_1)

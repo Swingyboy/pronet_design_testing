@@ -9,7 +9,7 @@ from pages.login_page import LoginPage
 from pages.deposit_page import DepositPage
 
 
-@pytest.fixture(scope='class')
+@pytest.fixture(scope='module')
 def login_to_page(browser, trader_link):
     user = 'serhiibezuhlyi'
     password = 'Fabokeyy.7'

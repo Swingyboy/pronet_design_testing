@@ -1,4 +1,5 @@
 from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
 
@@ -32,3 +33,8 @@ class BaseWindow():
         except TimeoutException:
             return False
         return True
+
+    def open_drop_down(self, dropdown_selector, element):
+        if self.is_element_clickable(*dropdown_selector):
+            dropdown = Select(self.browser.find_element(*dropdown_selector))
+            dropdown.select_by_index(element)

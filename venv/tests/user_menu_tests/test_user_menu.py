@@ -4,6 +4,7 @@ from pages.main_page import MainPage
 from pages.deposit_page import DepositPage
 
 
+@pytest.mark.run(order=3)
 class TestUserMenu():
 
     def test_user_can_open_deposit_page(self, login_to_page):

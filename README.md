@@ -10,7 +10,7 @@
 
 ## How to run
 ##### The runner accepts the path to .csv file as a parameter "--path_to_csv_file". This file should include the next columns:
-###### *- name of the trader that should be tested*  - as sting
+###### *- name of the trader that should be tested*  - as string
 ###### *- URL path to the trader's desktop page* - as string
 ###### *- URL path to the trader's mobile page* - as string
 ###### *- username for basic authentication* - as string

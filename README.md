@@ -1,4 +1,4 @@
-# My framework with smoke tests for Pronet
+# My framework with smoke GUI tests for Pronet
 
 ##### This reporsitory includes the python framework for simple smoke test.
 ##### As a testrunner the PyTest framework was used.

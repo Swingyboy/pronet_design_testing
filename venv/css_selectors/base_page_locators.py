@@ -15,7 +15,7 @@ class BasePageLocators():
 #Locators for the modal windows that can be opened in some cases if content was added
     PRELOADER = (By.CSS_SELECTOR, 'div#preloader')
     MODAL_WINDOW = (By.CSS_SELECTOR, '#mdl-on-enter')
-    MODAL_WINDOW_CLOSE = (By.CSS_SELECTOR, '#mdl-on-enter > a > i')
+    MODAL_WINDOW_CLOSE = (By.CSS_SELECTOR, '#mdl-on-enter > a')
 
 #Locators for the top-menu pages
     SPORTS_BET_BTN = (By.CSS_SELECTOR, 'li[data-order="1"]')

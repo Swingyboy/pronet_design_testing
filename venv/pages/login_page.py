@@ -20,7 +20,9 @@ class LoginPage(BasePage):
         assert title.text == 'Login' or title.text == 'Giriş'
 
     def user_login(self, user:str, password:str):
+        assert self.is_element_present(*LoginPageLocators.USERNAME_FIELD), 'The UserName field is missing!'
         user_field = self.browser.find_element(*LoginPageLocators.USERNAME_FIELD)
+        assert self.is_element_present(*LoginPageLocators.PASSWORD_FIELD), 'The PAssword field is missing!'
         password_field = self.browser.find_element(*LoginPageLocators.PASSWORD_FIELD)
         user_field.clear()
         password_field.clear()

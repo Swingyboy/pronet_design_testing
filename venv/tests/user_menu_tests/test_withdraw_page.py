@@ -11,4 +11,4 @@ class TestDepositPage():
         page = open_money_withdraw_page
         page.open_withdraw_method("bank transfer")
         transf_win = WithdrawBankTransferWin(page.browser, page.browser.current_url)
-        transf_win.create_transaction()
+        transf_win.create_transaction(amount=20)

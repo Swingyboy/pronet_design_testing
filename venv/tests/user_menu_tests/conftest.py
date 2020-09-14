@@ -17,10 +17,11 @@ def login_to_page(browser, trader_link):
 
     page = BasePage(browser, trader_link[0])
     page.open_url()
+    page.close_modal_window()
+    page.go_to_main_page()
     page.go_to_login_page()
 
     login_page = LoginPage(page.browser, page.browser.current_url)
-    login_page.close_modal_window()
     login_page.user_login(user, password)
     login_page.close_login_page()
 

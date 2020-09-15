@@ -1,8 +1,0 @@
-# Default ignored files
-/shelf/
-venv/Scripts/*
-venv/Include/*
-venv/Lib/*
-*.pyc
-*.iml
-*.xml

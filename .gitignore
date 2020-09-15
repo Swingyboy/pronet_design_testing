@@ -3,7 +3,9 @@
 venv/Scripts/*
 venv/Include/*
 venv/Lib/*
-venv/tests/*.html
 *.pyc
 *.iml
 *.xml
+*.html
+*.html
+venv/tests/user_menu_tests/report.html
